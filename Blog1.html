@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic - Stellar by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Importing CSV file into MySQL</h1>
+						<p>Solving missing data & Long time waiting for importing files</p>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								<span class="image main"><img src="images/import_csv_file.jpg" alt="" /></span>
+								<h2><b>Importing Data with Command Promt</b></h2>
+								<p align = 'justify'>When importing large data files into MySQL, there are two main issues - <b>missing data and wait for ages just to import a file</b> - that I encountered the majority of the time, and it took me a long time to figure out how to fix them. Unfortunately, I couldn't come up with any simple solutions. Things appear to be too complex for me to follow after hours and hours of reading other people's recommendations. But still nothing worked and that made me frustrated.</p>
+								<p align = 'justify'>Then I discovered a "treasure tool" that allowed me to import massive datasets in seconds, and since then, none of my data has gone missing. The method is to use <b>COMMAND PROMT</b> to import CSV data into MySQL. You can do it in a flash with the following guidance.</p>
+								<h2><b>Action stage</b></h2>
+								<p align = 'justify'><u>Step 1:</u> Type <b><i>cmd</i></b>   in the search box -> Enter to open Command Prompt </p>
+						
+								<p align = 'justify'><u>Step 2:</u> Login to MySQL</p>
+								<ul>
+									<li><p align = 'justify'>Type <b>mysql -u root -p --local_infile = 1</b> to the space below</p></li>
+									<li><p align = 'justify'>After that you enter the password you use in MySQL to complete the login</p></li>
+										
+								</ul>
+									<img src="images/2.jpg" alt = "" class="center"/>
+									<ul>
+										<li><p align = 'justify'><b>"root"</b> here is the username that you use to login. Most people will use the default name and that is my case. Replace <b>"root"</b> with your username if it's different.</p></li>
+										<li><p align = 'justify'><b>local_infile = 1</b> will enable the "LOAD DATA LOCAL INFILE" that help us import our data later.</p></li>
+									</ul>	
+								<p align = 'justify'><u>Step 3:</u> View and select database</p>
+								<ul>
+									<li><p align = 'justify'>Type <b>show databases;</b> (remember to have ";" at the end -> it's a sign that you end your code and they will run).</p></li>
+									<li><p align = 'justify'>The list of all databases you have in MySQL will be listed.</p></li>
+									<li><p align = 'justify'>Type <b>use 'the name of your database'</b> in my case <i>use data_cleaning</i> to select the database to import the file</p></li>
+									<img src="images/4.jpg" alt = "" class="center"/>	
+								</ul>
+								<p align = 'justify'><u>Step 4:</u> Import the dataset</p>
+								<ul>
+									<li><p align = 'justify'><b>Note: </b>Create the table that has the columns correlated with the table you will import first before moving to next step. (<a href= "https://www.youtube.com/watch?v=4oMJIyVOWL4" target="_blank"><b>how to create tables in MySQL) </a></b></p></li>
+									<li><p align = 'justify'>Write the code below to the command promt. You should write it in code editor or MySQL to make sure the syntax is correct.</p></li>
+									<li><p align = 'justify'><b>Note: </b> the data file should be moved to "C:\ProgramData\MySQL" if you encountered <i>"--secure-file-priv" (or you can use <b>SHOW VARIABLES LIKE "secure_file_priv";</b> to see where is the directory that is configured -> then move your file there).</i></p></li>
+									<li><p align = 'justify'><b>Note: </b> replace the backflash "\" with "/" when showing the path to your file <i>Ex: 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/housing_data.csv' </i></p></li>
+									<span class="image main"><img src="images/5.jpg" alt="" /></span>
+									<li><p align = 'justify'>Our CSV values are separated by commas so that's why we use <b>FIELDS TERMINATED BY ','</b></p></li>
+									<li><p align = 'justify'>Separate the lines with <b>LINES TERMINATED BY '\n'</b></p></li>
+									<li><p align = 'justify'>We will not import the header since we already created the header for our table, so use <b>IGNORE 1 rows</b></p></li>	
+								</ul>
+								<span class="image main"><img src="images/cmd.jpg" alt="" /></span>
+								<p>You are amazing that you have make this far. I hope this information might assist you in resolving your issue. Over 50000 values are imported in under 3 seconds, as you can see. Try it out and get a taste of how fast data can be imported.</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<section>
+						<h2>Contact</h2>
+						<dl class="alt">
+							<dt>Address</dt>
+							<dd>140 Lincoln Cross, Halifax, NS, Canada</dd>
+							<dt>Phone</dt>
+							<dd>902 329 0567</dd>
+							<dt>Email</dt>
+							<dd><a href="#">myhien156149@gmail.com</a></dd>
+						</dl>
+						<ul class="icons">
+						
+							<li><a href="https://github.com/alice156149" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+							<li><a href="https://www.linkedin.com/in/hien-my-do-4a4678141/" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
+						</ul>
+					
+						
+					</section>
+					<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+				</footer>
+
+		</div>
+
+	<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+</body>
+</html>
